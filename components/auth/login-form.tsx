@@ -1,9 +1,12 @@
 'use client';
 
+import { login } from '@/actions/login';
 import { LoginSchema } from '@/schemas';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 import z from 'zod';
+import { FormError } from '../form-error';
+import { FormSuccess } from '../form-success';
 import { Button } from '../ui/button';
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '../ui/form';
 import { Input } from '../ui/input';
@@ -19,7 +22,7 @@ export const LoginForm = () => {
 	});
 
 	const onSubmit = (values: z.infer<typeof LoginSchema>) => {
-		console.log(values);
+		login(values);
 	};
 
 	return (
@@ -63,6 +66,8 @@ export const LoginForm = () => {
 							)}
 						/>
 					</div>
+					<FormError message="Something went wrong!" />
+					<FormSuccess message="Registered successfully" />
 					<Button type="submit" className="w-full">
 						Login
 					</Button>
