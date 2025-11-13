@@ -4,11 +4,11 @@ import { Button } from '../ui/button';
 
 export const Social = () => {
 	return (
-		<div className="w-full flex flex-col items-center gap-y-2">
-			<Button className="w-full" size="lg" variant="default" onClick={() => {}}>
+		<div className="w-full flex items-center gap-2">
+			<Button className="w-[48%] " size="lg" variant="outline" onClick={() => {}}>
 				<FcGoogle className="h-5 w-5" />
 			</Button>
-			<Button className="w-full" size="lg" variant="auth" onClick={() => {}}>
+			<Button className="w-[48%]" size="lg" variant="outline" onClick={() => {}}>
 				<FaGithub className="h-5 w-5" />
 			</Button>
 		</div>
