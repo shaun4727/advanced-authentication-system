@@ -23,8 +23,14 @@ export const login = async (values: z.infer<typeof LoginSchema>) => {
 		});
 	} catch (err) {
 		if (err instanceof AuthError) {
-			switch (err) {
+			switch (err.type) {
+				case 'CredentialsSignin':
+					return { error: 'Invalid credentials!' };
+				default:
+					return { error: 'Something went wrong!' };
 			}
 		}
+
+		throw err;
 	}
 };
