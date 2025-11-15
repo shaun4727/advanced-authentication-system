@@ -34,3 +34,7 @@ export const login = async (values: z.infer<typeof LoginSchema>) => {
 		throw err;
 	}
 };
+
+export const socialLoginMethod = async (provider: 'google' | 'github') => {
+	signIn(provider);
+};

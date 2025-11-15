@@ -1,6 +1,6 @@
 -   [follow this](https://www.youtube.com/watch?v=1MTyCvS05V4&t=52s)
 
--   start from 03:08:00
+-   start from 03:29:00
 
 steps ----
 
@@ -19,3 +19,9 @@ steps ----
 
 1. prisma-adapter installed
 2. how local and production level database work with prisma. there is separate command to deploy database.
+
+// adding provider
+console.google.cloud.com(google console api) -> search for apis & services
+
+-   authorized javascript origin (http://localhost:3000)
+-   authorized redirect URI()
