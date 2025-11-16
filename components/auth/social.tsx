@@ -1,3 +1,5 @@
+'use client';
+
 import { socialLoginMethod } from '@/actions/login';
 import { FaGithub } from 'react-icons/fa';
 import { FcGoogle } from 'react-icons/fc';

@@ -1,6 +1,6 @@
 -   [follow this](https://www.youtube.com/watch?v=1MTyCvS05V4&t=52s)
 
--   start from 03:29:00
+-   start from 03:48:00
 
 steps ----
 
