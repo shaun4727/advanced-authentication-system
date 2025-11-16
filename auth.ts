@@ -24,10 +24,21 @@ export const {
 		},
 	},
 	callbacks: {
-		async signIn({ user }) {
-			const existingUser = await getUserById(String(user.id));
+		async signIn({ user, account }) {
+			// const existingUser = await getUserById(String(user.id));
 
-			if (!existingUser || !existingUser.emailVerified) {
+			// if (!existingUser || !existingUser.emailVerified) {
+			// 	return false;
+			// }
+
+			// allow users to sign in who registered via Oauth
+			if (account?.provider !== 'credentials') {
+				return true;
+			}
+
+			// prevent user to sign in who registered using credentials
+			const existingUser = await getUserById(user.id as string);
+			if (!existingUser?.emailVerified) {
 				return false;
 			}
 			return true;

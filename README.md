@@ -1,6 +1,6 @@
 -   [follow this](https://www.youtube.com/watch?v=1MTyCvS05V4&t=52s)
 
--   start from 03:48:00
+-   start from 04:30:00
 
 steps ----
 
@@ -12,13 +12,15 @@ steps ----
 6. next js hot reload
 7. How to configure next auth with next 16
 8. how to generate a secure auth secret(.env)
-9. checkout [next-auth](https://authjs.dev/)
+9. checkout [next-auth](https://authjs.dev/), react-spinners
 10. what is the use of `new URL`, `safePurse`
+11. use of uuid(npm i uuid)
+12. to integrate sending email, use ---- resend.com
 
-//db integration
+    //db integration
 
-1. prisma-adapter installed
-2. how local and production level database work with prisma. there is separate command to deploy database.
+13. prisma-adapter installed
+14. how local and production level database work with prisma. there is separate command to deploy database.
 
 // adding provider
 console.google.cloud.com(google console api) -> search for apis & services

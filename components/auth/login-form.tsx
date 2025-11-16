@@ -39,7 +39,7 @@ export const LoginForm = () => {
 				const res = await login(values);
 				if (res) {
 					setError(res?.error);
-					// setSuccess(res?.success);
+					setSuccess(res?.success);
 				}
 			} catch (err) {
 				console.log(err);
