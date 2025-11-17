@@ -2,6 +2,7 @@ import { db } from '@/lib/db';
 import { PrismaAdapter } from '@auth/prisma-adapter';
 import NextAuth from 'next-auth';
 import authConfig from './auth.config';
+import { getTwoFactorConfirmationByUserId } from './data/two-factor-confirmation';
 import { getUserById } from './data/user';
 import { UserRole } from './generated/prisma/enums';
 
@@ -18,7 +19,7 @@ export const {
 	events: {
 		async linkAccount({ user }) {
 			await db.user.update({
-				where: { id: Number(user.id) },
+				where: { id: user.id },
 				data: { emailVerified: new Date() },
 			});
 		},
@@ -41,6 +42,19 @@ export const {
 			if (!existingUser?.emailVerified) {
 				return false;
 			}
+
+			if (existingUser.isTwoFactorEnabled) {
+				const twoFactorConfirmation = await getTwoFactorConfirmationByUserId(existingUser.id);
+
+				if (!twoFactorConfirmation) {
+					return false;
+				}
+
+				await db.twoFactorConfirmation.delete({
+					where: { id: twoFactorConfirmation.id },
+				});
+			}
+
 			return true;
 		},
 		async session({ token, session }) {

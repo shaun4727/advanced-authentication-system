@@ -1,6 +1,6 @@
 -   [follow this](https://www.youtube.com/watch?v=1MTyCvS05V4&t=52s)
 
--   start from 04:30:00
+-   start from 05:55:00
 
 steps ----
 
@@ -19,11 +19,12 @@ steps ----
 13. use of react hook -- useCallback
 14. when to use asChild
 15. what is the use of findFirst, findUnique in prisma
+16. How prisma works?
 
     //db integration
 
-16. prisma-adapter installed
-17. how local and production level database work with prisma. there is separate command to deploy database.
+17. prisma-adapter installed
+18. how local and production level database work with prisma. there is separate command to deploy database.
 
 // adding provider
 console.google.cloud.com(google console api) -> search for apis & services
