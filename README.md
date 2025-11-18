@@ -1,6 +1,6 @@
 -   [follow this](https://www.youtube.com/watch?v=1MTyCvS05V4&t=52s)
 
--   start from 05:55:00
+-   start from 06:15:00
 
 steps ----
 
@@ -16,7 +16,7 @@ steps ----
 10. what is the use of `new URL`, `safePurse`
 11. use of uuid(npm i uuid)
 12. to integrate sending email, use ---- resend.com
-13. use of react hook -- useCallback
+13. use of react hook -- useCallback, useSession ( sessionprovider --- next-auth/react), usePathname(next/navigation)
 14. when to use asChild
 15. what is the use of findFirst, findUnique in prisma
 16. How prisma works?

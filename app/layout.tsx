@@ -1,5 +1,7 @@
+import { auth } from '@/auth';
 import { cn } from '@/lib/utils';
 import type { Metadata } from 'next';
+import { SessionProvider } from 'next-auth/react';
 import { Poppins } from 'next/font/google';
 import './globals.css';
 
@@ -13,14 +15,18 @@ export const metadata: Metadata = {
 	description: 'A well managed authentication',
 };
 
-export default function RootLayout({
+export default async function RootLayout({
 	children,
 }: Readonly<{
 	children: React.ReactNode;
 }>) {
+	const session = await auth();
+
 	return (
-		<html lang="en">
-			<body className={cn('antialiased', font.className)}>{children}</body>
-		</html>
+		<SessionProvider session={session}>
+			<html lang="en">
+				<body className={cn('antialiased', font.className)}>{children}</body>
+			</html>
+		</SessionProvider>
 	);
 }
