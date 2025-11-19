@@ -1,3 +1,5 @@
+'use server';
+
 import { getUserById } from '@/data/user';
 import { currentUser } from '@/lib/auth';
 import { db } from '@/lib/db';
@@ -17,10 +19,16 @@ export const settings = async (values: z.infer<typeof SettingsSchema>) => {
 		return { error: 'Unauthorized' };
 	}
 
-	await db.user.update({
+	const res = await db.user.update({
 		where: { id: dbUser.id },
 		data: {
 			...values,
 		},
 	});
+
+	console.log('res ', res);
+
+	if (res) {
+		return { success: 'User info updated!' };
+	}
 };
