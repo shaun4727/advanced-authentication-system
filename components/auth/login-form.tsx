@@ -78,18 +78,11 @@ export const LoginForm = () => {
 								name="code"
 								render={({ field }) => (
 									<FormItem>
-										<FormItem>
-											<FormLabel>Two Factor Code</FormLabel>
-											<FormControl>
-												<Input
-													{...field}
-													placeholder="123456"
-													type="email "
-													disabled={isPending}
-												/>
-											</FormControl>
-											<FormMessage />
-										</FormItem>
+										<FormLabel>Two Factor Code</FormLabel>
+										<FormControl>
+											<Input {...field} placeholder="123456" type="number" disabled={isPending} />
+										</FormControl>
+										<FormMessage />
 									</FormItem>
 								)}
 							/>
@@ -101,18 +94,16 @@ export const LoginForm = () => {
 									name="email"
 									render={({ field }) => (
 										<FormItem>
-											<FormItem>
-												<FormLabel>Email</FormLabel>
-												<FormControl>
-													<Input
-														{...field}
-														placeholder="john.doe@example.com"
-														type="email "
-														disabled={isPending}
-													/>
-												</FormControl>
-												<FormMessage />
-											</FormItem>
+											<FormLabel>Email</FormLabel>
+											<FormControl>
+												<Input
+													{...field}
+													placeholder="john.doe@example.com"
+													type="email"
+													disabled={isPending}
+												/>
+											</FormControl>
+											<FormMessage />
 										</FormItem>
 									)}
 								/>
@@ -121,25 +112,23 @@ export const LoginForm = () => {
 									name="password"
 									render={({ field }) => (
 										<FormItem>
-											<FormItem>
-												<FormLabel>Password</FormLabel>
-												<FormControl>
-													<Input
-														{...field}
-														placeholder="******"
-														type="password"
-														disabled={isPending}
-													/>
-												</FormControl>
-												<Button
-													size="sm"
-													variant="link"
-													className="px-0 font-normal flex justify-start"
-												>
-													<Link href="/auth/reset">Forgot password?</Link>
-												</Button>
-												<FormMessage />
-											</FormItem>
+											<FormLabel>Password</FormLabel>
+											<FormControl>
+												<Input
+													{...field}
+													placeholder="******"
+													type="password"
+													disabled={isPending}
+												/>
+											</FormControl>
+											<Button
+												size="sm"
+												variant="link"
+												className="px-0 font-normal flex justify-start"
+											>
+												<Link href="/auth/reset">Forgot password?</Link>
+											</Button>
+											<FormMessage />
 										</FormItem>
 									)}
 								/>
