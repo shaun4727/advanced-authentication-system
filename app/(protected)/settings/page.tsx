@@ -5,11 +5,15 @@ import { FormError } from '@/components/form-error';
 import { FormSuccess } from '@/components/form-success';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader } from '@/components/ui/card';
-import { Form, FormControl, FormField, FormItem, FormLabel } from '@/components/ui/form';
+import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
+import { Select, SelectContent, SelectItem, SelectTrigger } from '@/components/ui/select';
+import { Switch } from '@/components/ui/switch';
+import { UserRole } from '@/generated/prisma';
 import { useCurrentUser } from '@/hooks/use-current-user';
 import { SettingsSchema } from '@/schemas';
 import { zodResolver } from '@hookform/resolvers/zod';
+import { SelectValue } from '@radix-ui/react-select';
 import { useSession } from 'next-auth/react';
 import { useState, useTransition } from 'react';
 import { useForm } from 'react-hook-form';
@@ -29,6 +33,7 @@ const SettingsPage = () => {
 			email: user?.email || undefined,
 			password: undefined,
 			newPassword: undefined,
+			role: user?.role || undefined,
 		},
 	});
 
@@ -67,6 +72,7 @@ const SettingsPage = () => {
 										<FormControl>
 											<Input {...field} placeholder="John Doe" disabled={isPending} />
 										</FormControl>
+										<FormMessage />
 									</FormItem>
 								)}
 							/>
@@ -84,6 +90,7 @@ const SettingsPage = () => {
 												type="email"
 											/>
 										</FormControl>
+										<FormMessage />
 									</FormItem>
 								)}
 							/>
@@ -101,6 +108,7 @@ const SettingsPage = () => {
 												type="password"
 											/>
 										</FormControl>
+										<FormMessage />
 									</FormItem>
 								)}
 							/>
@@ -118,6 +126,7 @@ const SettingsPage = () => {
 												type="password"
 											/>
 										</FormControl>
+										<FormMessage />
 									</FormItem>
 								)}
 							/>
@@ -127,14 +136,43 @@ const SettingsPage = () => {
 								render={({ field }) => (
 									<FormItem>
 										<FormLabel>Role</FormLabel>
-										<FormControl>
-											<Input
-												{...field}
-												placeholder="******"
-												disabled={isPending}
-												type="password"
-											/>
-										</FormControl>
+										<Select
+											disabled={isPending}
+											onValueChange={field.onChange}
+											defaultValue={field.value}
+										>
+											<FormControl>
+												<SelectTrigger>
+													<SelectValue placeholder="Select a role" />
+												</SelectTrigger>
+											</FormControl>
+											<SelectContent>
+												<SelectItem value={UserRole.ADMIN}>Admin</SelectItem>
+												<SelectItem value={UserRole.USER}>User</SelectItem>
+											</SelectContent>
+										</Select>
+										<FormMessage />
+									</FormItem>
+								)}
+							/>
+							<FormField
+								control={form.control}
+								name="isTwoFactorEnabled"
+								render={({ field }) => (
+									<FormItem className="flex flex-row items-center justify-between rounded-lg border p-3 shadow-sm">
+										<div className="space-y-0 5">
+											<FormLabel>Two Factor Authentication</FormLabel>
+											<FormDescription>
+												Enable two factor authentication for your account
+											</FormDescription>
+											<FormControl>
+												<Switch
+													disabled={isPending}
+													checked={field.value}
+													onCheckedChange={field.onChange}
+												/>
+											</FormControl>
+										</div>
 									</FormItem>
 								)}
 							/>
