@@ -1,4 +1,5 @@
 import { auth } from '@/auth';
+import { Toaster } from '@/components/ui/sonner';
 import { cn } from '@/lib/utils';
 import type { Metadata } from 'next';
 import { SessionProvider } from 'next-auth/react';
@@ -25,7 +26,10 @@ export default async function RootLayout({
 	return (
 		<SessionProvider session={session}>
 			<html lang="en">
-				<body className={cn('antialiased', font.className)}>{children}</body>
+				<body className={cn('antialiased', font.className)}>
+					<Toaster />
+					{children}
+				</body>
 			</html>
 		</SessionProvider>
 	);

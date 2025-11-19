@@ -1,6 +1,4 @@
--   [follow this](https://www.youtube.com/watch?v=1MTyCvS05V4&t=52s)
-
--   start from 06:15:00
+-   [start from 06:47:00](https://www.youtube.com/watch?v=1MTyCvS05V4&t=22501s)
 
 steps ----
 
@@ -25,6 +23,7 @@ steps ----
 
 17. prisma-adapter installed
 18. how local and production level database work with prisma. there is separate command to deploy database.
+19. Mono Repo API call
 
 // adding provider
 console.google.cloud.com(google console api) -> search for apis & services
