@@ -26,6 +26,9 @@ const SettingsPage = () => {
 		resolver: zodResolver(SettingsSchema),
 		defaultValues: {
 			name: user?.name || undefined,
+			email: user?.email || undefined,
+			password: undefined,
+			newPassword: undefined,
 		},
 	});
 
@@ -63,6 +66,74 @@ const SettingsPage = () => {
 										<FormLabel>Name</FormLabel>
 										<FormControl>
 											<Input {...field} placeholder="John Doe" disabled={isPending} />
+										</FormControl>
+									</FormItem>
+								)}
+							/>
+							<FormField
+								control={form.control}
+								name="email"
+								render={({ field }) => (
+									<FormItem>
+										<FormLabel>Email</FormLabel>
+										<FormControl>
+											<Input
+												{...field}
+												placeholder="john.doe@example.com"
+												disabled={isPending}
+												type="email"
+											/>
+										</FormControl>
+									</FormItem>
+								)}
+							/>
+							<FormField
+								control={form.control}
+								name="password"
+								render={({ field }) => (
+									<FormItem>
+										<FormLabel>Password</FormLabel>
+										<FormControl>
+											<Input
+												{...field}
+												placeholder="******"
+												disabled={isPending}
+												type="password"
+											/>
+										</FormControl>
+									</FormItem>
+								)}
+							/>
+							<FormField
+								control={form.control}
+								name="newPassword"
+								render={({ field }) => (
+									<FormItem>
+										<FormLabel>New Password</FormLabel>
+										<FormControl>
+											<Input
+												{...field}
+												placeholder="******"
+												disabled={isPending}
+												type="password"
+											/>
+										</FormControl>
+									</FormItem>
+								)}
+							/>
+							<FormField
+								control={form.control}
+								name="role"
+								render={({ field }) => (
+									<FormItem>
+										<FormLabel>Role</FormLabel>
+										<FormControl>
+											<Input
+												{...field}
+												placeholder="******"
+												disabled={isPending}
+												type="password"
+											/>
 										</FormControl>
 									</FormItem>
 								)}
