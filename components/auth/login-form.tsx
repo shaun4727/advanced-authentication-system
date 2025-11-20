@@ -5,7 +5,7 @@ import { LoginSchema } from '@/schemas';
 import { zodResolver } from '@hookform/resolvers/zod';
 import Link from 'next/link';
 import { useSearchParams } from 'next/navigation';
-import { useState, useTransition } from 'react';
+import { useEffect, useState, useTransition } from 'react';
 import { useForm } from 'react-hook-form';
 import z from 'zod';
 import { FormError } from '../form-error';
@@ -20,6 +20,11 @@ export const LoginForm = () => {
 	const [error, setError] = useState<string | undefined>('');
 	const [success, setSuccess] = useState<string | undefined>('');
 	const [showTwoFactor, setShowTwoFactor] = useState(false);
+	const [mounted, setMounted] = useState(false);
+
+	useEffect(() => {
+		setMounted(true);
+	}, []);
 
 	const searchParams = useSearchParams();
 	const urlError =
@@ -62,6 +67,7 @@ export const LoginForm = () => {
 		});
 	};
 
+	if (!mounted) return null;
 	return (
 		<CardWrapper
 			headerLabel="Welcome back"
