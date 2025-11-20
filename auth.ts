@@ -38,7 +38,6 @@ export const {
 				return true;
 			}
 
-			console.log('not credentiallll');
 			// prevent user to sign in who registered using credentials
 			const existingUser = await getUserById(user.id as string);
 			if (!existingUser?.emailVerified) {
